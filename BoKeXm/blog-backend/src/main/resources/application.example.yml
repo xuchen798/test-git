@@ -1,0 +1,103 @@
+# ============================================
+# 博客系统配置示例文件
+# 使用说明：
+#   1. 复制此文件，重命名为 application.yml
+#   2. 按照你的实际环境修改下面的配置
+#   3. application.yml 已加入 .gitignore，不会被提交到仓库
+# ============================================
+
+server:
+  port: ${SERVER_PORT:8081}
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: blog-backend
+
+  # ========== 数据库配置 ==========
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog_system?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true
+    # 改为你自己的 MySQL 用户名
+    username: root
+    # 改为你自己的 MySQL 密码
+    password: "你的MySQL密码"
+
+  # ========== Flyway 数据库迁移 ==========
+  # 首次启动建议设置为 false，手动执行 db/migration/V1__init.sql
+  # 后续需要自动迁移可改为 true
+  flyway:
+    enabled: false
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+    encoding: UTF-8
+    validate-on-migrate: false
+    clean-disabled: true
+
+  # ========== Redis 配置 ==========
+  redis:
+    host: localhost
+    port: 6379
+    # 如果你的 Redis 设置了密码，填在这里
+    password:
+    database: 0
+    timeout: 3000ms
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+
+  # ========== 文件上传配置 ==========
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+      enabled: true
+
+# ========== Swagger 接口文档 ==========
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+
+# ========== MyBatis-Plus 配置 ==========
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*.xml
+  type-aliases-package: com.blog.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+# ========== JWT 认证配置 ==========
+jwt:
+  # 生产环境务必修改为自己的随机强密钥！
+  secret: 请在这里输入一串足够长的随机字符串作为JWT密钥例如abcdefghijklmnopqrstuvwxyz0123456789
+  expiration: 86400000
+  header: Authorization
+  prefix: "Bearer "
+
+# ========== 图形验证码 ==========
+kaptcha:
+  width: 120
+  height: 40
+  char-length: 4
+  expiration: 120
+
+# ========== 文件上传路径 ==========
+file:
+  upload:
+    # 建议改为绝对路径，例如 Linux: /data/blog/upload/
+    # Windows: D:/blog/upload/
+    path: ./blog-backend/upload/
+    url-prefix: /upload/
