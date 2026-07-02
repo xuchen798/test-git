@@ -44,25 +44,25 @@
 ![首页截图](docs/images/home-page.PNG)
 
 ### 2. 登录 / 注册
-![登录注册](docs/images/login-page.png)
+![登录注册](docs/images/login-page.PNG)
 
 ### 3. 文章详情 + 评论
-![文章详情](docs/images/article-detail.png)
+![文章详情](docs/images/article-detail.PNG)
 
 ### 4. Markdown 编辑器（写文章）
-![写文章](docs/images/write-article.png)
+![写文章](docs/images/write-article.PNG)
 
 ### 5. 个人设置
-![个人设置](docs/images/settings-page.png)
+![个人设置](docs/images/settings-page.PNG)
 
 ### 6. 搜索结果
-![搜索页](docs/images/search-page.png)
+![搜索页](docs/images/search-page.PNG)
 
 ### 7. 我的收藏
-![收藏页](docs/images/favorites-page.png)
+![收藏页](docs/images/favorites-page.PNG)
 
 ### 8. 管理后台
-![管理后台](docs/images/admin-dashboard.png)
+![管理后台](docs/images/admin-dashboard.PNG)
 
 ---
 
