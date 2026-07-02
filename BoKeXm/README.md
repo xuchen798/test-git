@@ -41,10 +41,10 @@
 <!-- 👇 请将下面的路径替换为你实际的图片路径 👇 -->
 
 ### 1. 首页 - 文章列表
-![首页截图](docs/images/home-page.PNG)
+![首页截图](docs/images/home-page.png)
 
 ### 2. 登录 / 注册
-![登录注册](docs/images/login-page.PNG)
+![登录注册](docs/images/login-page.png)
 
 ### 3. 文章详情 + 评论
 ![文章详情](docs/images/article-detail.PNG)
